@@ -1,6 +1,6 @@
 Clone this repository by running the following command:
 
-    git clone --recursive https://github.com/wkhtmltopdf/wkhtmltopdf.git
+    git clone --recursive https://github.com/danger89/wkhtmltopdf.git
 
 If you are on Windows, make sure that you are cloning in a location without
 spaces/special characters in the name. In case you already have a cloned
