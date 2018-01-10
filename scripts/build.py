@@ -35,6 +35,7 @@ BUILDERS = {
     'setup-schroot-centos5': 'setup_schroot',
     'setup-schroot-centos6': 'setup_schroot',
     'setup-schroot-wheezy':  'setup_schroot',
+    'setup-schroot-stretch': 'setup_schroot',
     'setup-schroot-trusty':  'setup_schroot',
     'setup-schroot-precise': 'setup_schroot',
     'update-all-schroots':   'update_schroot',
@@ -44,6 +45,7 @@ BUILDERS = {
     'centos6-amd64':         'linux_schroot',
     'wheezy-i386':           'linux_schroot',
     'wheezy-amd64':          'linux_schroot',
+    'stretch-amd64':         'linux_schroot',
     'trusty-i386':           'linux_schroot',
     'trusty-amd64':          'linux_schroot',
     'precise-i386':          'linux_schroot',
@@ -189,6 +191,15 @@ FPM_SETUP = {
         '--depends':         ['fontconfig', 'libfontconfig1', 'libfreetype6', 'libpng12-0', 'zlib1g', 'libjpeg8',
                               'libssl1.0.0', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
     },
+    'stretch': {
+        '-t':                'deb',
+        '--deb-compression': 'xz',
+        '--provides':        'wkhtmltopdf',
+        '--conflicts':       'wkhtmltopdf',
+        '--replaces':        'wkhtmltopdf',
+        '--depends':         ['fontconfig', 'libfontconfig1', 'libfreetype6', 'libpng12-0', 'zlib1g', 'libjpeg8',
+                              'libssl1.0.0', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
+    },
     'trusty': {
         '-t':                'deb',
         '--deb-compression': 'xz',
@@ -246,7 +257,21 @@ deb http://security.debian.org/   wheezy/updates main contrib non-free"""),
         ('fpm_setup',  'fpm_package.sh'),
         ('schroot_conf', 'Debian Wheezy')
     ],
-
+    'stretch': [
+        #('debootstrap', 'stretch', 'http://ftp.us.debian.org/debian/'),
+        #('write_file', 'etc/apt/sources.list', """
+#deb http://ftp.debian.org/debian/ stretch         main contrib non-free
+#deb http://ftp.debian.org/debian/ stretch-updates main contrib non-free
+#deb http://security.debian.org/   stretch/updates main contrib non-free"""),
+        #('shell', 'apt-get update'),
+        #('shell', 'apt-get dist-upgrade --assume-yes'),
+        #('shell', 'apt-get install --assume-yes xz-utils libssl-dev libpng-dev libjpeg62-turbo-dev zlib1g-dev ruby'),
+        #('shell', 'apt-get install --assume-yes libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxrender-dev'),
+        #('shell', 'gem install fpm ronn --no-ri --no-rdoc'),
+        ('write_file', 'update.sh', 'apt-get update\napt-get dist-upgrade --assume-yes\n'),
+        ('fpm_setup',  'fpm_package.sh'),
+        ('schroot_conf', 'Debian Stretch')
+    ],
     'trusty': [
         ('debootstrap', 'trusty', 'http://archive.ubuntu.com/ubuntu/'),
         ('write_file', 'etc/apt/sources.list', """
