@@ -39,6 +39,8 @@ target distribution -- you will need to first setup the build environment
 and then only you can perform the build for a 32-bit or 64-bit binary.
 The following targets are currently supported:
 
+For Debian Stretch libssl1.0.2 should be installed (since OpenSSL 1.1 has backwards compatible changes).
+
 Target         | Setup of Build Environment                    | Building 32-bit binaries                 |  Building 64-bit binaries
 ------         | --------------------------                    | ------------------------                 |  ------------------------
 Debian Wheezy  | `sudo scripts/build.py setup-schroot-wheezy`  | `scripts/build.py wheezy-i386`           | `scripts/build.py wheezy-amd64`
