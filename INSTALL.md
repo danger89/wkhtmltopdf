@@ -42,6 +42,7 @@ The following targets are currently supported:
 Target         | Setup of Build Environment                    | Building 32-bit binaries                 |  Building 64-bit binaries
 ------         | --------------------------                    | ------------------------                 |  ------------------------
 Debian Wheezy  | `sudo scripts/build.py setup-schroot-wheezy`  | `scripts/build.py wheezy-i386`           | `scripts/build.py wheezy-amd64`
+Debian Stretch  | `sudo scripts/build.py setup-schroot-wheezy`  | -                                       | `scripts/build.py stretch-amd64`
 Ubuntu Trusty  | `sudo scripts/build.py setup-schroot-trusty`  | `scripts/build.py trusty-i386`           | `scripts/build.py trusty-amd64`
 Ubuntu Precise | `sudo scripts/build.py setup-schroot-precise` | `scripts/build.py precise-i386`          | `scripts/build.py precise-amd64`
 CentOS 6       | `sudo scripts/build.py setup-schroot-centos6` | `scripts/build.py centos6-i386`          | `scripts/build.py centos6-amd64`
