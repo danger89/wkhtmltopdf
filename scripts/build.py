@@ -198,7 +198,7 @@ FPM_SETUP = {
         '--conflicts':       'wkhtmltopdf',
         '--replaces':        'wkhtmltopdf',
         '--depends':         ['fontconfig', 'libfontconfig1', 'libfreetype6', 'libpng12-0', 'zlib1g', 'libjpeg-turbo8',
-                              'libssl1.0.2', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
+                              'libssl1.0.0', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
     },
     'trusty': {
         '-t':                'deb',
@@ -1022,7 +1022,7 @@ def build_linux_schroot(config, basedir):
         for var in ['CFLAGS', 'CXXFLAGS']:
             lines.append('export %s="-w"' % var)
     lines.append('if [ ! -f is_configured ]; then')
-    lines.append('  ../../../qt/configure %s || exit 1' % configure_args)
+    lines.append('  ../../../qt/configure -no-openssl %s || exit 1' % configure_args)
     lines.append('  touch is_configured')
     lines.append('fi')
     lines.append('if ! make -j%d -q; then\n  make -j%d || exit 1\nfi' % (CPU_COUNT, CPU_COUNT))
