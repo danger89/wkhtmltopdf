@@ -198,7 +198,7 @@ FPM_SETUP = {
         '--conflicts':       'wkhtmltopdf',
         '--replaces':        'wkhtmltopdf',
         '--depends':         ['fontconfig', 'libfontconfig1', 'libfreetype6', 'libpng12-0', 'zlib1g', 'libjpeg-turbo8',
-                              'libssl1.0.0', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
+                              'libssl1.0.2', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
     },
     'trusty': {
         '-t':                'deb',
