@@ -265,7 +265,7 @@ deb http://ftp.debian.org/debian/ stretch-updates main contrib non-free
 deb http://security.debian.org/   stretch/updates main contrib non-free"""),
         ('shell', 'apt-get update'),
         ('shell', 'apt-get dist-upgrade --assume-yes'),
-        ('shell', 'apt-get install --assume-yes xz-utils libssl-dev libpng-dev libjpeg62-turbo-dev zlib1g-dev ruby'),
+        ('shell', 'apt-get install --assume-yes xz-utils libssl-dev libpng-dev libjpeg62-turbo-dev zlib1g-dev ruby ruby-dev'),
         ('shell', 'apt-get install --assume-yes libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxrender-dev'),
         ('shell', 'gem install fpm ronn --no-ri --no-rdoc'),
         ('write_file', 'update.sh', 'apt-get update\napt-get dist-upgrade --assume-yes\n'),
