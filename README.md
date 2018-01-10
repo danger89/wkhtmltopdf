@@ -1,3 +1,6 @@
+**Worse case try to install this deb file on Stretch**:
+http://ftp.debian.org/debian/pool/main/w/wkhtmltopdf/wkhtmltopdf_0.12.1-2_amd64.deb
+
 wkhtmltopdf and wkhtmltoimage
 -----------------------------
 
