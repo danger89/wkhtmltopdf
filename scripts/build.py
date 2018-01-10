@@ -197,7 +197,7 @@ FPM_SETUP = {
         '--provides':        'wkhtmltopdf',
         '--conflicts':       'wkhtmltopdf',
         '--replaces':        'wkhtmltopdf',
-        '--depends':         ['fontconfig', 'libfontconfig1', 'libfreetype6', 'libpng12-0', 'zlib1g', 'libjpeg8',
+        '--depends':         ['fontconfig', 'libfontconfig1', 'libfreetype6', 'libpng12-0', 'zlib1g', 'libjpeg-turbo8',
                               'libssl1.0.0', 'libx11-6', 'libxext6', 'libxrender1', 'libstdc++6', 'libc6']
     },
     'trusty': {
@@ -258,16 +258,16 @@ deb http://security.debian.org/   wheezy/updates main contrib non-free"""),
         ('schroot_conf', 'Debian Wheezy')
     ],
     'stretch': [
-        #('debootstrap', 'stretch', 'http://ftp.us.debian.org/debian/'),
-        #('write_file', 'etc/apt/sources.list', """
-#deb http://ftp.debian.org/debian/ stretch         main contrib non-free
-#deb http://ftp.debian.org/debian/ stretch-updates main contrib non-free
-#deb http://security.debian.org/   stretch/updates main contrib non-free"""),
-        #('shell', 'apt-get update'),
-        #('shell', 'apt-get dist-upgrade --assume-yes'),
-        #('shell', 'apt-get install --assume-yes xz-utils libssl-dev libpng-dev libjpeg62-turbo-dev zlib1g-dev ruby'),
-        #('shell', 'apt-get install --assume-yes libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxrender-dev'),
-        #('shell', 'gem install fpm ronn --no-ri --no-rdoc'),
+        ('debootstrap', 'stretch', 'http://ftp.nl.debian.org/debian/'),
+        ('write_file', 'etc/apt/sources.list', """
+deb http://ftp.debian.org/debian/ stretch         main contrib non-free
+deb http://ftp.debian.org/debian/ stretch-updates main contrib non-free
+deb http://security.debian.org/   stretch/updates main contrib non-free"""),
+        ('shell', 'apt-get update'),
+        ('shell', 'apt-get dist-upgrade --assume-yes'),
+        ('shell', 'apt-get install --assume-yes xz-utils libssl-dev libpng-dev libjpeg62-turbo-dev zlib1g-dev ruby'),
+        ('shell', 'apt-get install --assume-yes libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxrender-dev'),
+        ('shell', 'gem install fpm ronn --no-ri --no-rdoc'),
         ('write_file', 'update.sh', 'apt-get update\napt-get dist-upgrade --assume-yes\n'),
         ('fpm_setup',  'fpm_package.sh'),
         ('schroot_conf', 'Debian Stretch')
